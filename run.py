@@ -1,3 +1,4 @@
+#!/bin/env python3
 from docker_backup import cli
 import sys
 
