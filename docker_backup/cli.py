@@ -22,7 +22,12 @@ logging.basicConfig(level=logging.DEBUG)
 APPS = dict(
     ubuntu={
         '14.04': 'ps aux'
+    },
+    postgres={
+        '9.4': "pg_dump -U postgres postgres",
+        'latest': "pg_dump -U postgres postgres",
     }
+
 )
 
 
@@ -36,10 +41,14 @@ def main():
 
 def app_backup(c, container):
     cid = container['Id']
-    name, version = container['Image'].split(':')
-    app = APPS.get(name)
+    image = container['Image']
+    version = None
+    if ':' in image:
+        image, version = container['Image'].split(':')
+
+    app = APPS.get(image)
     if not app:
-        log.warning("No commoand found for image: '{}'".format(name))
+        log.warning("No commoand found for image: '{}'".format(image))
         return
     command = app.get(version)
     if not command:
@@ -49,11 +58,11 @@ def app_backup(c, container):
     e = c.exec_create(cid, command)
     for o in c.exec_start(e, stream=True):
         for l in o.splitlines():
-            log.info(l)
+            print(l)
 
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())
 
 
