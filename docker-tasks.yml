@@ -1,0 +1,8 @@
+images:
+    ubuntu:
+      '14.04':
+        - ps aux
+
+    postgres:
+      '9.4':
+        - /bin/sh -c "pg_dump -U postgres postgres > /var/lib/postgresql/data/db_backup_$(date +%u).sql"
