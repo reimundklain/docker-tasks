@@ -17,7 +17,7 @@ setup(
     scripts=[],
     entry_points={
         'console_scripts': [
-            'docker-tasks = docker_backup:main',
+            'docker-tasks = docker_tasks:main',
         ]
     },
 
