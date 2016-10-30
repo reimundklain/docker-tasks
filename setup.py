@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='docker-tasks',
-    version='0.0.1-0',
+    version='0.0.1-1',
     author='Reimund Klain',
     author_email='reimund.klain@condevtec.de',
 
