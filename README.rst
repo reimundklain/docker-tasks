@@ -1,4 +1,4 @@
-|Build|
+|travis|
 
 docker-tasks
 ############
@@ -41,8 +41,8 @@ Usage
       -h, --help            show this help message and exit
       -c CONFIG, --config CONFIG
                             Config yaml. Default (docker-tasks.yml)
-      -v, --verbose         Increate output verbosity
+      -v, --verbose         Increase output verbosity
 
 
-.. |Build| image:: https://travis-ci.org/daymien/docker-tasks.svg
+.. |travis| image:: https://travis-ci.org/daymien/docker-tasks.svg
    :target: https://travis-ci.org/daymien/docker-tasks

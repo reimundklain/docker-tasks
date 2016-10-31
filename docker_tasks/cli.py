@@ -11,9 +11,9 @@ import re
 from docker import client
 
 __title__ = 'docker-tasks'
-__version__ = '0.1.0'
+__version__ = '0.0.2'
 __author__ = 'Reimund Klain'
-__license__ = 'Apache 2.0'
+__license__ = 'BSD'
 __copyright__ = 'Copyright 2016 Reimund Klain'
 
 log = logging.getLogger(__name__)
@@ -54,7 +54,7 @@ def execute(c, config, container):
 
     app = config.get('images').get(image)
     if not app:
-        log.info("{}: image: '{}' version: '{}' name: '{}' command: '{}'".format(
+        log.debug("{}: image: '{}' version: '{}' name: '{}' command: '{}'".format(
             sid, image, version, names, None))
         return
 
