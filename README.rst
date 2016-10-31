@@ -1,3 +1,5 @@
+|Build|
+
 docker-tasks
 ############
 
@@ -40,3 +42,7 @@ Usage
       -c CONFIG, --config CONFIG
                             Config yaml. Default (docker-tasks.yml)
       -v, --verbose         Increate output verbosity
+
+
+.. |Build| image:: https://travis-ci.org/daymien/docker-tasks.svg
+   :target: https://travis-ci.org/daymien/docker-tasks
