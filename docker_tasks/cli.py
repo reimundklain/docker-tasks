@@ -6,6 +6,7 @@ import sys
 import logging
 import argparse
 import yaml
+import re
 
 from docker import client
 
@@ -37,6 +38,7 @@ def app_backup(c, config, container):
     image = container['Image']
     names = ', '.join([ n.replace('/', '') for n in container['Names']])
     version = None
+    commands = []
     if ':' in image:
         image, version = container['Image'].split(':')
 
@@ -46,16 +48,18 @@ def app_backup(c, config, container):
             sid, image, version, names, None))
         return
 
-    commands = app.get(version)
-    if not commands:
-        log.info("{}: image: '{}' version: '{}' name: '{}' command: '{}'".format(
-            sid, image, version, names, None))
-        return
+    if version:
+        for k in app.keys():
+            p = '^%s$' % k.replace('.', '\.').replace('*', '.*')
+            log.debug(p)
+            match = re.search(p, version)
+            if match:
+                commands += app.get(k)
 
     for command in commands:
         cmd = command
-        log.info("{}: image: '{}' version: '{}' names: '{}'".format(sid, image, version, names))
-        log.info("{}: command: '{}'".format(sid, command))
+        log.debug("{}: image: '{}' version: '{}' names: '{}'".format(sid, image, version, names))
+        log.debug("{}: command: '{}'".format(sid, command))
         e = c.exec_create(cid, cmd)
         for o in c.exec_start(e, stream=True):
             for l in o.splitlines():

@@ -1,8 +1,19 @@
 images:
     ubuntu:
+      '*':
+        - echo "I'm a all match"
+
+      '14*':
+        - echo "I'm a asterisk match"
+
       '14.04':
-        - ps aux
+        - echo "I'm a exact match"
+
 
     postgres:
-      '9.4':
+      '*':
+        - ps aux
+
+      '9.*':
         - /bin/sh -c "pg_dump -U postgres postgres > /var/lib/postgresql/data/db_backup_$(date +%u).sql"
+
