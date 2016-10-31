@@ -3,7 +3,7 @@ images:
       '*':
         - echo "I'm a all match"
 
-      '14*':
+      '14.*':
         - echo "I'm a asterisk match"
 
       '14.04':

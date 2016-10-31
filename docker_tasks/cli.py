@@ -51,7 +51,6 @@ def app_backup(c, config, container):
     if version:
         for k in app.keys():
             p = '^%s$' % k.replace('.', '\.').replace('*', '.*')
-            log.debug(p)
             match = re.search(p, version)
             if match:
                 commands += app.get(k)
