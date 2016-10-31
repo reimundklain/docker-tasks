@@ -68,7 +68,7 @@ def app_backup(c, config, container):
 def get_argparse():
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--config', default="./docker-tasks.yml", help="Config yaml. Default (docker-tasks.yml)")
-    parser.add_argument('-v', '--verbose', action='store_true', help='Increate output verbosity')
+    parser.add_argument('-v', '--verbose', action='store_true', help='Increase output verbosity')
     return parser.parse_args()
 
 if __name__ == '__main__':
