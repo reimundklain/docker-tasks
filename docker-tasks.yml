@@ -9,7 +9,6 @@ images:
       '14.04':
         - echo "I'm a exact match"
 
-
     postgres:
       '*':
         - ps aux
