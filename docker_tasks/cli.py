@@ -26,7 +26,7 @@ def main():
         config = yaml.load(fd.read())
     c = client.Client('unix://var/run/docker.sock')
     for container in c.containers():
-        app_backup(c, config, container)
+        execute(c, config, container)
 
 
 def setup(args):
@@ -34,7 +34,15 @@ def setup(args):
         log.setLevel(logging.DEBUG)
 
 
-def app_backup(c, config, container):
+def execute(c, config, container):
+    """
+    Execute via docker exec
+
+    :param c: docker client
+    :param config: config dict
+    :param container: container dict
+    :return: None
+    """
     cid = container['Id']
     sid = cid[:12]
     image = container['Image']
@@ -51,11 +59,7 @@ def app_backup(c, config, container):
         return
 
     if version:
-        for k in app.keys():
-            p = '^%s$' % k.replace('.', '\.').replace('*', '.*')
-            match = re.search(p, version)
-            if match:
-                commands += app.get(k)
+        parse_commands(app, version, commands)
 
     for command in commands:
         cmd = command
@@ -65,6 +69,22 @@ def app_backup(c, config, container):
         for o in c.exec_start(e, stream=True):
             for l in o.splitlines():
                 log.info('{}: {}'.format(sid, l.decode('utf-8')))
+
+
+def parse_commands(app, version, commands):
+    """
+    Parse commands by pattern and versions
+
+    :param app:
+    :param version:
+    :param commands:
+    :return:
+    """
+    for k in app.keys():
+        p = '^%s$' % k.replace('.', '\.').replace('*', '.*')
+        match = re.search(p, version)
+        if match:
+            commands += app.get(k)
 
 
 def parse_args():
