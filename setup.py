@@ -11,7 +11,7 @@ setup(
     license='BSD',
     description='',
     long_description=__doc__,
-    keywords=['docker', 'cron', 'command-line', 'CLI'],
+    keywords=['docker', 'tasks', 'cron', 'command-line', 'CLI'],
 
     packages=find_packages(),
     scripts=[],
