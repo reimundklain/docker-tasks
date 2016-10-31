@@ -11,9 +11,6 @@ Installation
 
     pip install docker-tasks
 
-::
-
-    pip install j2cli[yaml]
 
 docker-tasks.yml
 ________________
