@@ -20,7 +20,7 @@ log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 def main():
-    args = get_argparse()
+    args = parse_args()
     setup(args)
     with open(args.config) as fd:
         config = yaml.load(fd.read())
@@ -28,9 +28,11 @@ def main():
     for container in c.containers():
         app_backup(c, config, container)
 
+
 def setup(args):
     if args.verbose:
         log.setLevel(logging.DEBUG)
+
 
 def app_backup(c, config, container):
     cid = container['Id']
@@ -65,7 +67,7 @@ def app_backup(c, config, container):
                 log.info('{}: {}'.format(sid, l.decode('utf-8')))
 
 
-def get_argparse():
+def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--config', default="./docker-tasks.yml", help="Config yaml. Default (docker-tasks.yml)")
     parser.add_argument('-v', '--verbose', action='store_true', help='Increase output verbosity')
