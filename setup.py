@@ -23,7 +23,7 @@ setup(
 
     install_requires=[
         'docker-py',
-        'requests'
+        'pyaml'
     ],
     #extras_require={
     #    'yaml': ['pyyaml',]
