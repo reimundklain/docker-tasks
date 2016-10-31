@@ -2,7 +2,10 @@ docker-tasks
 ############
 
 ``docker-tasks`` is a tool for executing periodic tasks via docker exec.
-For example dumping all `PostgreSQL <https://www.postgresql.org/>`__ based images to the container related volume.
+It is looking up for running docker images and execute the specified commands in the matching container
+
+An use case could be to dump all `PostgreSQL <https://www.postgresql.org/>`__ based images to the container related volume.
+This allow me to backup ``/var/lib/docker/volumes/`` with a ``pg_dump`` generated database dump inside my volumes.
 
 Installation
 ============
