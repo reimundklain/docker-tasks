@@ -12,12 +12,15 @@ Installation
     pip install docker-tasks
 
 
-docker-tasks.yml
-________________
+Create a ``docker-tasks.yml`` with example commands
 
 ::
 
     images:
+        ubuntu:
+          '*':
+            - ps aux
+
         postgres:
           '9.*':
             - /bin/sh -c "pg_dump -U postgres postgres > /var/lib/postgresql/data/db_backup_$(date +%u).sql"
