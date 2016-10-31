@@ -24,7 +24,7 @@ def main():
     setup(args)
     with open(args.config) as fd:
         config = yaml.load(fd.read())
-    c = client.Client('unix://var/run/docker.sock')
+    c = client.Client(args.docker_host)
     for container in c.containers():
         execute(c, config, container)
 
@@ -90,6 +90,7 @@ def parse_commands(app, version, commands):
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--config', default="./docker-tasks.yml", help="Config yaml. Default (docker-tasks.yml)")
+    parser.add_argument('--docker-host', default="unix://var/run/docker.sock", help="Docker host. Default (unix://var/run/docker.sock)")
     parser.add_argument('-v', '--verbose', action='store_true', help='Increase output verbosity')
     return parser.parse_args()
 
