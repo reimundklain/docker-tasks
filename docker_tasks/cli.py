@@ -11,7 +11,7 @@ import re
 from docker import client
 
 __title__ = 'docker-tasks'
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 __author__ = 'Reimund Klain'
 __license__ = 'BSD'
 __copyright__ = 'Copyright 2016 Reimund Klain'
