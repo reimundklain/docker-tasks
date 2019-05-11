@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
-from __future__ import unicode_literals
 
 import sys
 import logging
@@ -14,7 +12,7 @@ __title__ = "docker-tasks"
 __version__ = "0.0.4"
 __author__ = "Reimund Klain"
 __license__ = "BSD"
-__copyright__ = "Copyright 2019 Reimund Klain"
+__copyright__ = "Copyright 2019 - Reimund Klain"
 
 log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(message)s")
