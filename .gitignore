@@ -1,3 +1,4 @@
+.pytest_cache/
 .idea/
 .pypirc
 # Byte-compiled / optimized / DLL files
