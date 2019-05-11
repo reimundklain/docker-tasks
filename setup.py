@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='docker-tasks',
-    version='0.0.3',
+    version='0.0.4',
     author='Reimund Klain',
     author_email='reimund.klain@condevtec.de',
 
@@ -40,7 +40,6 @@ setup(
         'Operating System :: OS Independent',
         'Topic :: Software Development',
         'Natural Language :: English',
-        'Programming Language :: Python :: 2',
-        #'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3',
     ],
 )
