@@ -11,10 +11,10 @@ import re
 from docker import client
 
 __title__ = "docker-tasks"
-__version__ = "0.0.3"
+__version__ = "0.0.4"
 __author__ = "Reimund Klain"
 __license__ = "BSD"
-__copyright__ = "Copyright 2016 Reimund Klain"
+__copyright__ = "Copyright 2019 Reimund Klain"
 
 log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -24,7 +24,7 @@ def main():
     args = parse_args()
     setup(args)
     with open(args.config) as fd:
-        config = yaml.load(fd.read())
+        config = yaml.safe_load(fd.read())
     c = client.Client(args.docker_host)
     for container in c.containers():
         execute(c, config, container)
