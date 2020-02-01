@@ -9,10 +9,10 @@ import re
 from docker import client
 
 __title__ = "docker-tasks"
-__version__ = "0.0.4"
+__version__ = "0.0.5"
 __author__ = "Reimund Klain"
 __license__ = "BSD"
-__copyright__ = "Copyright 2019 - Reimund Klain"
+__copyright__ = "Copyright 2020 - Reimund Klain"
 
 log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(message)s")
