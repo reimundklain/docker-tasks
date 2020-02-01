@@ -9,7 +9,7 @@ import re
 from docker.client import APIClient
 
 __title__ = "docker-tasks"
-__version__ = "0.0.7"
+__version__ = "0.0.8"
 __author__ = "Reimund Klain"
 __license__ = "BSD"
 __copyright__ = "Copyright 2020 - Reimund Klain"

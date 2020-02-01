@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="docker-tasks",
-    version="0.0.7",
+    version="0.0.8",
     author="Reimund Klain",
     author_email="reimund.klain@condevtec.de",
     url="https://github.com/daymien/docker-tasks",
