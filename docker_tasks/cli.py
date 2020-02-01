@@ -6,7 +6,7 @@ import argparse
 import yaml
 import re
 
-from docker import client
+from docker.client import APIClient
 
 __title__ = "docker-tasks"
 __version__ = "0.0.7"
@@ -23,7 +23,7 @@ def main():
     setup(args)
     with open(args.config) as fd:
         config = yaml.safe_load(fd.read())
-    c = client.Client(args.docker_host)
+    c = APIClient(args.docker_host)
     for container in c.containers():
         execute(c, config, container)
 
