@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="docker-tasks",
-    version="0.0.4",
+    version="0.0.5",
     author="Reimund Klain",
     author_email="reimund.klain@condevtec.de",
     url="https://github.com/daymien/docker-tasks",
@@ -21,12 +21,13 @@ setup(
     tests_require=["pytest"],
     platforms="any",
     classifiers=[
-        "Development Status :: 1 - Planning",
+        "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
         "Intended Audience :: System Administrators",
         "Operating System :: OS Independent",
         "Topic :: Software Development",
         "Natural Language :: English",
+        "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
     ],
 )

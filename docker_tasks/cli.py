@@ -87,7 +87,7 @@ def parse_commands(app, version, commands):
     :return:
     """
     for k in app.keys():
-        p = "^%s$" % k.replace(".", "\.").replace("*", ".*")
+        p = r"^%s$" % k.replace(".", "\.").replace("*", ".*")
         match = re.search(p, version)
         if match:
             commands += app.get(k)
