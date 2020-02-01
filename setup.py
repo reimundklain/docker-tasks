@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="docker-tasks",
-    version="0.0.5",
+    version="0.0.6",
     author="Reimund Klain",
     author_email="reimund.klain@condevtec.de",
     url="https://github.com/daymien/docker-tasks",
@@ -15,7 +15,7 @@ setup(
     packages=find_packages(),
     scripts=[],
     entry_points={"console_scripts": ["docker-tasks = docker_tasks:main"]},
-    install_requires=["docker-py", "pyaml"],
+    install_requires=["docker", "pyaml"],
     zip_safe=False,
     setup_requires=["pytest-runner"],
     tests_require=["pytest"],
