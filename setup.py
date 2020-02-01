@@ -8,7 +8,7 @@ setup(
     author_email="reimund.klain@condevtec.de",
     url="https://github.com/daymien/docker-tasks",
     license="BSD",
-    description="Utilze docker exec to run commands on yaml base config",
+    description="Utilize docker exec to run commands on yaml base config",
     long_description=open('README.rst').read(),
     long_description_content_type='text/x-rst',
     keywords=["docker", "tasks", "cron", "command-line", "CLI"],
