@@ -9,10 +9,10 @@ import re
 from docker.client import APIClient
 
 __title__ = "docker-tasks"
-__version__ = "0.0.8"
+__version__ = "0.1.0"
 __author__ = "Reimund Klain"
 __license__ = "BSD"
-__copyright__ = "Copyright 2020 - Reimund Klain"
+__copyright__ = "Copyright 2023 - Reimund Klain"
 
 log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -49,7 +49,7 @@ def execute(c, config, container):
     version = None
     commands = []
     if ":" in image:
-        image, version = container["Image"].split(":")
+        image, version = container["Image"].split(":", 1)
 
     app = config.get("images").get(image)
     if not app:
@@ -60,8 +60,7 @@ def execute(c, config, container):
         )
         return
 
-    if version:
-        parse_commands(app, version, commands)
+    parse_commands(app, version, commands)
 
     for command in commands:
         cmd = command
@@ -77,20 +76,20 @@ def execute(c, config, container):
                 log.info("{}: {}".format(sid, l.decode("utf-8")))
 
 
-def parse_commands(app, version, commands):
+def parse_commands(container, version, commands):
     """
     Parse commands by pattern and versions
 
-    :param app:
+    :param container:
     :param version:
     :param commands:
     :return:
     """
-    for k in app.keys():
-        p = r"^%s$" % k.replace(".", "\.").replace("*", ".*")
-        match = re.search(p, version)
+    for k in container.keys():
+        p = r"^%s$" % k.replace(".", r"\.").replace("*", ".*")
+        match = re.search(p, version or "latest")
         if match:
-            commands += app.get(k)
+            commands += container.get(k)
 
 
 def parse_args():

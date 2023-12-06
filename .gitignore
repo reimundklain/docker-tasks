@@ -1,3 +1,4 @@
+.direnv/
 .pytest_cache/
 .idea/
 .pypirc
