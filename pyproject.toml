@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docker-tasks"
-version = "0.1.0"
+version = "0.1.1"
 description = "Run periodic tasks via docker exec"
 authors = ["Reimund Klain <reimund.klain@condevtec.de>"]
 license = "BSD"
