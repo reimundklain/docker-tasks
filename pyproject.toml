@@ -6,6 +6,9 @@ authors = ["Reimund Klain <reimund.klain@condevtec.de>"]
 license = "BSD"
 readme = "README.rst"
 
+[tool.poetry.scripts]
+docker-tasks = "docker_tasks.cli:main"
+
 [tool.poetry.dependencies]
 python = "^3.8"
 docker = "^6.1.3"
